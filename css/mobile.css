@@ -1,0 +1,30 @@
+html.no-overflow, html.no-overflow body{
+	display: block;
+	min-height: 100%;
+	overflow: visible;
+}
+html.no-overflow #metro-pjax{
+	min-height: 100%;
+	position: relative;
+	top:0 !important;
+}
+html.no-overflow #metro-wrapper{
+ 	position: absolute;
+ 	overflow: visible;
+ 	bottom:0;
+}
+html.no-overflow #metro-content-overlay{
+	height:auto;
+	min-height: 100%;
+	position: relative;
+	overflow: visible;
+}
+html.no-overflow #metro-content-wrapper{
+	overflow:visible;
+	position: relative;
+	min-height: 100%;
+}
+
+html.no-overflow footer#metro-footer{
+	position: fixed;
+}

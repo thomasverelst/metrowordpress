@@ -1,0 +1,729 @@
+
+/************************************************************************
+Theme Name: Metro Template - Wordpress
+Theme URI: http://metro-webdesign.info
+Description: Built a tile-based website with ease.
+Author: Thomas Verelst
+Author URI: 
+Version: 0.1
+Text Domain: metro-template;
+Tags: flexble-width, translation-ready, tiles, responsive, transitions, grey, metro, windows 8, microformat
+
+License: GPL2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+html{
+	overflow-y:hidden; /* needs to be checked. Has been set like this because FF otherwise lags on animations*/
+	overflow-x:auto;
+}
+html,body{
+	padding:0;
+	margin:0;
+	height:100%;
+	width:100%;
+	font-size:1em;
+}
+#wpadminbar{
+	position:fixed !important;
+	top:0 !important;
+	z-index: 60 !important;
+}
+#metro-pjax{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom: 0;
+}
+#metro-wrapper{
+	position: absolute;
+	display: block;
+	margin: 0 !important;
+	width:100%;
+	top:50px;
+	bottom:16px; /* adjust to footer height */
+	z-index:0;
+}
+#metro-tile-wrapper{
+	position: absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+#metro-tile-scroller{
+	overflow-x:scroll;
+	overflow-y:auto;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	min-height: 100px;
+	padding: 0px 10px 0 20px;
+}
+.column #metro-tile-scroller{
+	overflow-x:auto;
+	overflow-y:auto;
+	padding: 0px 10px 0 10px;
+}
+#metro-tile-sizer{
+	min-height: 100px;
+	overflow: visible;
+}
+#metro-content-overlay{
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color:  #333;
+	background-color: rgba(20,20,20,0.8);
+	perspective:3000px;
+	-webkit-perspective:3000px;
+	z-index: 11;
+}
+#metro-content-wrapper{
+	position: relative;
+	max-width:900px;
+	min-width:200px;
+	width:auto;
+	height:100%;
+	margin:0 auto;
+	padding:0px;
+	background-color: #DDD;
+	box-shadow: 0 0 3px #333;
+	overflow: auto;
+	top:0;bottom:0;left:0;right:0;
+	z-index:11;
+
+	color:#FFF;
+}
+#metro-content{
+	display: block;
+	position: relative;
+	padding:20px;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;	
+}
+#metro-content:before{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top:0;
+	right:0;
+	background-color: transparent;
+	border-top:142px solid rgba(221,221,221,0.15);
+	border-left:142px solid transparent;
+	padding:0px;
+	width:0px;
+}
+/* Content close button */
+#metro-content > #metro-content-close{
+ 	position: absolute;
+ 	top:0px;
+ 	right:5px;
+ 	padding: 1px 5px;
+ 	z-index: 200;
+}
+#metro-content > #metro-content-close{
+ 	font-size:28px;
+ 	font-weight: 300;
+ 	color:white;
+ 	text-decoration: none;
+}
+#metro-content > #metro-content-close:hover{
+ 	color:#DDD;
+ 	text-decoration: none;
+}
+/* HEADER */
+header#metro-header{
+	position: relative;
+	top:0;
+	left:0;
+	right:0;
+	padding: 0 40px 0 20px;
+	background-color:#222;
+	/*border-bottom:1px solid #555;*/
+	box-shadow: 0 0 3px #777;
+	z-index:5;
+	min-height:50px;
+}
+.column header#metro-header{
+	padding: 0 40px 0 10px;
+}
+#metro-header>#header-titles{
+	display: inline-block;
+}
+#header-titles>#site-title{
+	margin:0;
+	padding:2px 0 2px 0;
+	display:  inline-block;
+	font-weight: 300;
+	font-size:38px;
+	color:#FFF;
+	text-decoration: none;
+	-webkit-transition:color 0.3s;
+	        transition:color 0.3s;
+}
+#header-titles>#site-title:hover{
+	color:#F90 !important;
+}
+#header-titles>#site-desc{
+	padding:0 0 5px 3px;
+	font-weight: 300;
+	font-size:14px;
+	color:#DDD;
+	display: inline-block;
+}
+
+/*FOOTER*/
+footer#metro-footer{
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	padding:0px;
+	height:16px;
+	font-size:11px;
+	background-color:#222;
+	border-top:1px solid #999;
+	z-index:5;
+}
+footer#metro-footer .copyright{
+	position:absolute;
+	color:#BBB;
+	font-size:10px;
+	right:4px;
+	bottom:1px;
+}
+
+/*LOADER*/
+#metro-loader-overlay{
+	overflow: hidden;
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	padding-top:20%;
+	text-align: center;
+	background-color: rgba(20,20,20,0.7);
+	display: none;
+}
+#metro-loader-wrapper{
+	display: block;
+	position: relative;
+	background-color:#DDD;
+	width:200px;
+	height:120px;
+	margin:auto;
+	vertical-align:middle;
+	line-height: 50%;
+}
+#metro-loader{
+	margin-top:40px;
+	padding:10px;
+	background:rgba(221,221,221,0.8);
+	box-shadow: 0 0 3px #DDD;
+}
+#metro-content-loader{ /* ? */
+	display: block;
+	position: relative;
+	width:32px;
+	margin:20px auto;
+}
+
+/* Single.php */
+article.post .post-thumb{
+	margin:15px 0 15px 0;
+	text-align: center;
+}
+article.post .post-thumb img.wp-post-image{
+	border:1px solid rgba(221,221,221,0.3);
+	max-width: 600px;
+	width:100%;
+	height:auto;
+}
+div.tile .post-thumb{
+	display: none;
+}
+main#metro-content .title{
+	display:inline-block; 
+	margin:0;
+}
+main#metro-content .date{
+	vertical-align: top;
+	top:4px;
+}
+main#metro-content article.post>header{
+	display: inline-block;
+	margin:-5px 5px 5px 5px;
+}
+main#metro-content article.post>header>.title{
+	margin-top: 0;
+}
+main#metro-content article.post>header>.post-author{
+	font-weight: 400;
+	margin: 0 0 0 2px;
+	font-size:12px;
+	color:#EEE;
+}
+#metro-content>#metro-content-divider{
+	width:100%;
+	display: table;
+}
+#metro-content article.post{
+	position: relative;
+	padding:0 !important;
+	margin:0 0 20px 0 !important;
+	display: table-cell;
+}
+#metro-post-footer{
+	margin-top: 30px;
+	color:#DDD;
+	font-size:12px;
+}
+
+
+/* Comments */
+#comments, #respond{
+	position: relative;
+	background-color:rgba(221,221,221,0.2);
+	border:1px solid rgba(255,255,255,0.1);
+	margin:15px 0 15px 0;
+}
+#comments>h3, #respond>h3{
+	background-color: #CCC;
+	background-color: rgba(221,221,221,0.3);
+	padding:5px 5px 5px 5px;
+	margin:0;
+	height:20px;
+	font-size:16px;
+	font-weight: 300;
+}
+#comments>h3:before, #respond>h3:before{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top:0;
+	right:0;
+	background-color: transparent;
+	border-top:30px solid rgba(221,221,221,0.5);
+	border-left:30px solid transparent;
+	padding:0px;
+	width:0px;
+}
+#comment-list, #comment-form{
+	margin:0;
+	padding:10px;
+	list-style: none;
+}
+#comments .comment-body{
+	clear: both;
+	overflow: auto;
+}
+#comments .comment-author{
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	float:left;
+}
+#comments .comment-author>img.avatar:before{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top:0;
+	left:0;
+	background-color: transparent;
+	border-top:10px solid rgba(221,221,221,0.8);
+	border-right:10px solid transparent;
+	padding:0px;
+	width:0px;
+}
+#comments .comment>.comment-body>header{
+	padding-left:70px;
+}
+#comments .comment>.comment-body>header>.author-name{
+	font-size:1.4em;
+	margin: 0 5px 3px 5px;
+	
+	display: inline-block;
+}
+#comments .comment>.comment-body>header>.author-name a{
+	color:#EEE;
+}
+#comments .comment>.comment-body>header>.author-name a:hover{
+	color:#FFF;
+}
+#comments .comment{
+	border-bottom:1px dashed rgba(221,221,221,0.8);
+	padding:0 0 10px 0;
+	margin:0 0 10px 0;
+}
+#comments p{
+	margin:0 0 10px 0;
+}
+#comments .children{
+	margin: 0 0 0 30px;
+	padding: 0 0 0 10px;
+}
+
+#comments .children .comment{
+	border-bottom:none;
+	padding:10px 0 0px 0;
+	margin:0 0 10px 0;
+}
+#comments #comment-list>.comment:last-of-type{
+	border-bottom:none;
+	margin:0 0 0 0;
+}
+
+#comments .comment-content{
+	padding-left:75px;
+	text-align: justify;
+}
+
+#comments .comment-meta{
+	float:right;
+	font-size:11px;
+}
+#comments .comment-meta a{
+	text-decoration: none;
+	color:#E9E9E9;
+}
+#comments .comment-meta a:hover{
+	text-decoration:underline;
+	color:#FFF;
+}
+
+#comments .comment .reply{
+	display: inline-block;
+	float:right;
+	font-size:11px;
+}
+
+#comments .comment .reply a{
+	color:#EEE;
+	text-decoration: none;
+}
+
+#comments .comment .reply a:hover{
+	color:#FFF;
+	text-decoration: underline;
+}
+
+/* Respond form */
+#respond{
+	margin: 20px 0 0 0;
+	position: relative;
+}
+#respond>h3{
+	position: relative;
+	background-color: #CCC;
+	background-color: rgba(221,221,221,0.3);
+}
+#respond>h3:hover{
+	background-color: #CCC;
+	background-color: rgba(221,221,221,0.8);
+}
+#respond #respond-textarea{
+	width:100%;
+	min-height: 75px;
+}
+#respond #comment-form>fieldset>table td{
+	padding:2px;
+}
+#respond #comment-form>fieldset{
+	border:none;
+}
+
+#respond .cancel a{
+	display: inline-block;
+	padding:3px 5px;
+	background-color:#888;
+	border:1px #CCC solid;
+	text-decoration: none;
+	font-weight: 600;
+	color:#FFF;
+}
+#respond .cancel:hover a{
+	background-color:#F90;
+}
+
+/* Date indicator */
+div.date{
+	position: relative;
+	display: inline-block;
+	background: #F60;
+	padding:5px 2px 4px 5px;
+	cursor: default;
+	line-height: 160%;
+	border:1px solid rgba(221,221,221,0.5);
+	width:50px;
+	overflow: hidden;
+}
+div.date>.left{
+	display: inline-block;
+}
+div.date>.left>.day{
+	display: block;
+	position: relative;
+	font-size:24px;	
+	font-weight: 300;
+	color:#FFF;
+	text-decoration: none;
+}
+div.date>.left>.month{
+	display: block;
+	position: relative;
+	font-size:14px;
+	text-transform: uppercase;
+	font-weight: 600;
+	left:0px;
+	color:#FFF;
+	text-decoration: none;
+}
+div.date>.year{
+	display: inline-block;
+	position: absolute;
+	font-size:16px;
+	font-weight: 300;
+	top:24px;
+	margin-left:-8px;
+	line-height: 0;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	color:#FFF;
+	text-decoration: none;
+}
+div.date>.left>.day:hover,
+div.date>.left>.month:hover,
+div.date>.year:hover{
+	text-decoration: underline;
+}
+
+/*Small date */
+div.date.small{
+	padding:3px 0 1px 3px;
+	line-height: 110%;
+	width:40px;
+}
+div.date.small>.left>.day{
+	font-size:20px;	
+	font-weight: 300;
+}
+div.date.small>.left>.month{
+	font-size:10px;
+	top:0px;
+}
+div.date.small>.year{
+	font-size:13px;
+	top:16px;
+	margin-left:-7px;
+	line-height: 0px;
+}
+
+/* Pagination */
+.pagination{
+	text-align: center;
+}
+.pagination ul{
+	display: inline-block;
+	background-color: #F60;
+	border:1px solid rgba(221,221,221,0.5);
+	list-style: none;
+	padding:0;
+}
+.pagination li{
+	display: inline-block;	
+}
+.pagination li a{
+	display: inline-block;
+	text-decoration: none;
+	color:#F2F2F2;
+	padding:3px;
+}
+.pagination li a:hover{
+	text-decoration: underline;
+	color:#FFF;
+}
+.post-pagination.pagination li{
+	padding:3px 5px;
+}
+.post-pagination.pagination li a{
+	padding:0px;
+}
+
+/* Sidebar */
+aside#sidebar{
+	position: relative;
+	display: table-cell;
+	width:180px;
+	padding: 0 0px 0 20px !important;
+	margin: 0 auto;
+	vertical-align:top;
+}
+
+aside#sidebar>div{
+	background-color: rgba(221,221,221,0.2);
+	border:1px solid rgba(255,255,255,0.1);
+	margin:15px 0 15px 0;
+}
+#metro-content aside#sidebar{
+	padding-top:45px !important;
+}
+
+/*Fix a lot of things for siteorigins panels, it's hacky...*/
+.panel.widget{
+	margin: 15px 0 15px 0;
+}
+.panel-row-style-metro-style .panel.widget{
+	background-color: rgba(221,221,221,0.2);
+	border:1px solid rgba(255,255,255,0.1);
+}
+.panel-row-style-metro-style .panel.widget .widget-title{
+	position: relative;
+	font-size:16px;
+	height:22px;
+	padding:4px 8px 4px 8px;
+	margin: 0px 0 0px 0;
+}
+.panel-row-style-metro-style .panel.widget>div, .panel-row-style-metro-style .panel.widget>form  {
+	padding:10px;
+}
+.panel-row-style-metro-style .panel.widget>div.origin-widget{
+	padding:10px;
+}
+.panel-row-style-metro-style .panel.widget>div.origin-widget>div, .panel-row-style-metro-style .panel.widget>div.origin-widget>form{
+	padding:10px;
+}
+#sidebar h2, .panel-row-style-metro-style .panel.widget .widget-title{
+	position: relative;
+	background-color: #CCC;
+	background-color: rgba(221,221,221,0.35);
+	font-size:16px;
+	height:22px;
+	padding:4px 8px 4px 8px;
+	margin: 0px 0 0px 0;
+}
+#sidebar h2:before, .panel-row-style-metro-style .panel.widget .widget-title:before{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top:0;
+	right:0;
+	background-color: transparent;
+	border-top:30px solid rgba(221,221,221,0.5);
+	border-left:30px solid transparent;
+	padding:0px;
+	width:0px;
+}
+
+/* Calendar widget*/
+#sidebar #calendar_wrap{
+	margin:3px;
+}
+#sidebar #wp-calendar td{
+	padding:1px 3px;
+}
+#sidebar #wp-calendar td{
+	padding:1px 3px;
+	color:#DDD;
+}
+#sidebar #wp-calendar{
+	margin:0 auto;
+}
+#sidebar #wp-calendar td>a{
+	color:#FFF;
+}
+#sidebar #wp-calendar td>a:hover{
+	color:#F90;
+}
+#sidebar #wp-calendar>caption{
+	padding-bottom:3px;
+	color:#EEE;
+}
+
+/* Other widgets*/
+.metro-widget input, .metro-widget select, .metro-widget textarea{
+	color:#333;
+}
+.meto-widget [name=archive-dropdown]{
+	width:160px;
+	margin:3px auto;
+	display: block;
+}
+#sidebar ul li a{
+	color:#EEE;
+	text-decoration: none;
+}
+#sidebar ul li a:hover{
+	color:#FFF;
+}
+#sidebar #searchform, #sidebar .search-form{
+	margin:5px;
+}
+#sidebar #searchform .screen-reader-text, #sidebar .search-form .screen-reader-text{
+	display: none;
+}
+#sidebar #searchform input#s, #sidebar .search-form input#s, #sidebar .search-form input.search-field{
+	display: inline-block;
+	width:108px;
+}
+#sidebar .tagcloud{
+	margin:5px;
+}
+#sidebar .tagcloud a{
+	color:#EEE;
+	text-decoration: none;
+}
+#sidebar .tagcloud a:hover{
+	color:#FFF;
+	text-decoration: underline;
+}
+#sidebar .textwidget{
+	margin:5px;
+}
+
+/* General img fitting */
+img.img-fill{
+	min-width:100%;
+	min-height: 100%;
+}
+img.img-fill.tall{ /* Aspect ratio (width/height) of image is SMALLER than container */
+	min-width:auto;
+    min-height: auto;
+    width: 100%;
+    height: auto; 
+}
+img.img-fill.wide{  /* Aspect ratio (width/height) of image is GREATER than container */
+    min-width: auto;
+    min-height: auto;
+    width: auto;
+    height: 100%;
+}
+
+/* TRIVIAL THINGS */
+.hidden{
+	display: none;
+}
+.align-top{
+	vertical-align: top;
+}
+.margin-0{
+	margin:0;
+}
+.padding-0{
+	padding:0;
+}
+.center{
+	text-align: center;
+}
+.vertical-center{
+	top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}

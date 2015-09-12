@@ -1,0 +1,133 @@
+/* For wordpress tinymce */
+body#tinymce.wp-editor { 
+    font-family:Open Sans, Segoe UI light, Sans Serif;
+	font-size:13px;
+    color:#FFF;
+}
+body#tinymce.wp-editor a {
+    color: #F9F9F9;
+}
+
+/* HEADINGS */
+h1{
+	color:#FFF;
+	font-weight: 300;
+	font-size:40px;
+}
+h2{
+	color:#F9F9F9;
+	font-weight: 300;
+	font-size:32px;
+}
+h3{
+	color:#FFF;
+	font-weight: 400;
+	font-size:24px;
+}
+h4{
+	color:#FFF;
+	font-weight: 300;
+	font-size:20px;
+	text-transform: uppercase;
+}
+h5{
+	color:#FAFAFA;
+	font-weight: 400;
+	font-size:16px;
+}
+h6{
+	color:#FFF;
+	font-weight: 300;
+	font-size:14px;
+	text-transform: uppercase;
+}
+
+/* ELEMENTS*/ 
+p{
+	color:#FFF;
+}
+ul{
+	list-style: square;
+}
+a{
+	color:#DFDFDF;
+	text-decoration: underline;
+}
+a:hover{
+	color:#FFF;
+}
+pre{
+	background-color: #444;
+	background-color: rgba(30,30,30,0.5);
+	border: 1px solid rgba(240,240,240,0.4);
+	padding: 10px;
+}
+hr{
+	border: none;
+	border-bottom: 1px #DDD dashed;
+}
+blockquote{
+	background-color: rgba(240,240,240,0.2);
+	border-left: 3px solid rgba(240,240,240,0.8);
+	padding:4px 15px;
+	font-size:15px;
+	line-height: 22px;
+}
+blockquote:before {
+	color: #FFF;
+	content: open-quote;
+	font-size: 50px;
+	line-height: 5px;
+	margin: 5px 5px 0 0;
+	vertical-align: -22px;
+}
+blockquote p{
+	display: inline;
+}
+.text-highlight{
+	background-color:#FFF;
+	color:#F60;
+}
+
+/* Inputs */
+input, textarea{
+	color:#111;
+	padding:2px;
+	margin:2px 0;
+}
+input[type=submit], input[type=button], .button{
+	display: inline-block;
+	padding:4px 5px;
+	background-color:#888;
+	border:1px #BBB solid;
+	font-weight: 600;
+	color:#FFF;
+	text-decoration: none;
+}
+input[type=submit]:hover, input[type=button]:hover, .button:hover{
+	background-color:#F90;
+}
+
+/*Boxes */
+.metro-box-content,
+.metro-box-info,
+.metro-box-warning,
+.metro-box-hint,
+.metro-box-download { margin: 15px 0;text-align: justify;padding: 10px 10px 10px 40px;color:#FFF; border:rgba(221,221,221,0.4) solid 1px;}
+.metro-box-info { background:#295680 url(../img/icons/light/box_info.png) 0 0 no-repeat; }
+.metro-box-warning { background:#C33 url(../img/icons/light/box_warning.png) 0 0 no-repeat;}
+.metro-box-hint {background: #F07800 url(../img/icons/light/box_hint.png) 0 0 no-repeat;}
+.metro-box-download {background: #6FBA38 url(../img/icons/light/box_download.png) 0 0 no-repeat;}
+.metro-box-content{
+	padding:10px;
+	background:#666;
+	background:rgba(70,70,70,0.5);
+}
+
+/* Style the color when selecting content */
+::selection {
+  background: #0CA4F0; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #0CA4F0; /* Gecko Browsers */
+}

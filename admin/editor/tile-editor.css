@@ -1,0 +1,265 @@
+#metro-wys-wrap{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:10000;
+    background-color:#EEE;
+    font-family:Open Sans, Segoe UI light, Sans Serif;
+    font-size:13px;
+}
+#metro-wys-content{
+	width:100%;
+	height:100%;
+}
+#metro-wys-tile-wrap{
+    overflow-x: scroll;
+    margin-bottom:50px;
+}
+
+#metro-wys-tile-sizer{
+    width:auto;
+    white-space: nowrap;
+    display: table;
+    padding:20px;
+}
+
+.metro-wys-groupTitle-wrap{
+    white-space: nowrap;
+}
+.metro-wys-groupTitle{
+    font-size:20px;
+    margin:5px;
+    padding:10px 10px 10px 0;
+    white-space: nowrap;
+    display: inline-block;
+}
+.metro-prop-table td{
+    vertical-align: top;
+}
+.metro-prop-table td:first-of-type{
+    padding-top:7px;
+}
+
+#metro-wys-tiles-title{
+    margin-left:20px;
+    padding:40px 10px 10px 10px;
+    background-color: #444;
+    color:#FFF;
+    font-weight: 300;
+    font-size:26px;
+    display: inline-block;
+}
+
+
+#metro-wys-popup{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:101;
+    background-color:rgba(255,255,255,0.5);
+    font-size:13px;
+}
+#metro-wys-popup-window{
+    background-color:#FFF;
+    min-width:300px;
+    max-width: 650px;
+    margin:50px auto 20px auto;
+    min-height:200px;
+    padding:20px;
+    border:#BBB 1px solid;
+    box-shadow:  0 0 2px #CCC;
+    overflow: auto;
+
+}
+#metro-wys-button-bar{
+    background-color:#333;
+    height:32px;
+    color:#FFF;
+    padding:2px 5px 0 5px;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right: 0;
+}
+
+#metro-wys-button-bar input#publish{
+    float:right;
+    margin-right:3px;
+}
+
+
+/*/
+/* gridster
+/*/
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.gridster ul {
+    background-color: transparent;
+    transition:background 0.5s;
+    list-style-type: none;
+    min-width:500px;
+    margin-right:100px;
+}
+
+.gridster li {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 100%;
+    color:#FFF;
+    box-shadow: 0 0 2px #777;
+    padding:0;
+    overflow: hidden;
+}
+
+.gridster li>.metro-wys-tile-buttons{
+    position: absolute;
+    top:0;
+    left:0;
+    padding:5px 5px 5px 30px;
+    background-color:rgba(30,30,30,0.5);
+}
+
+.gridster button{
+    font-size:10px;
+}
+
+.gridster {
+    margin: 0 auto;
+    display: table-cell;
+    padding-right:100px;
+    padding-bottom:100px;
+}
+
+.gridster .gs-w {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.gridster .player {
+    background: #BBB;
+}
+
+
+.gridster .preview-holder {
+    border: none!important;
+    background: red!important;
+}
+
+.gridster li .metro-wys-prop-overview{
+    width:100%;
+    position: absolute;
+    top:20px;/* for buttons*/
+    bottom:0;
+    right:0;
+    left:0;
+    overflow: auto;
+}
+
+
+.gridster li iframe{
+}
+
+
+/*LABELS */
+.tile-label-wrap{
+    position:absolute;
+    
+    padding:0;
+    margin:0;
+    height:auto;
+    z-index:11;
+    display: inline-block;
+}
+.tile-label{
+    position:relative;
+    display:inline-block;
+    font-size:13px; 
+    text-decoration: none;  
+    color: #FFF; 
+}
+.tile-label-desc{
+    border-top:1px solid #999;
+    background-color:rgb(140,140,140);
+    background-color:rgba(55,55,55,0.6);
+    -webkit-filter:opacity(alpha=0.8);
+            filter:opacity(alpha=0.8);
+    color:#CCC;
+    padding:3px;
+    font-size:12px;
+}
+.show-on-hover{
+    display:none;
+}
+/*BOTTOM LABEL */
+.tile-label-wrap.bottom{
+    bottom:1px;
+    left:0; 
+    height:21px;
+}
+.tile-label.bottom{  
+    position:relative;
+    padding: 2px 2px 0px 2px;
+    border-right: 15px solid transparent;  
+    border-bottom: 20px solid #777;    
+    height: 0;  
+    line-height: 17px;  
+}
+/* TOP LABEL */
+.tile-label-wrap.top{
+    right:0;
+    top:0;
+    border-left: 15px solid transparent;  
+    border-top: 20px solid #777;
+    height: 0;
+    z-index:15;
+}
+.tile-label.top{
+    padding: 0px 2px 2px 2px;  
+    top:-16px;   
+}
+
+
+textarea#metro-import-data-textarea{
+    display: block;
+    width:100%;
+    max-width:600px;
+    min-width:200px;
+    min-height:500px;
+}
+
+#metro-widget-args-wrap{
+    border: 1px dashed #777;
+    padding:15px;
+}
+#metro-widget-args-wrap label{
+    margin:0;
+    margin-top:15px;
+}
+#metro-wys-form-buttons{
+    margin: 15px 0;
+    text-align: center;
+}
+
+
+.gridster .tile .metro-tile-wysiwyg-wrapper button{
+    position: relative;
+    z-index: 15;
+    
+}
+
+.gridster .tile .tile-label-wrap.top{
+    position: absolute;
+    z-index:10;
+}
