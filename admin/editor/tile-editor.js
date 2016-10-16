@@ -577,17 +577,17 @@ function getFormProps(props){
 						// get each element of the arayt
 						$container.find("input").not('input[type=button]').each(function(){
 							if(jQuery(this).val() != ''){
-								prop_vals[prop_vals.length] = jQuery(this).val()
+								prop_vals[prop_vals.length] = escapeHtml(jQuery(this).val())
 							}
 						})
 						props[propName] = prop_vals
 					}else{
-						props[propName] = $thisEl.val()
+						props[propName] = escapeHtml($thisEl.val())
 					}
 
 				break;
 				default:
-				props[propName] = $thisEl.val()
+				props[propName] = escapeHtml($thisEl.val())
 			}
 
 			
@@ -595,6 +595,10 @@ function getFormProps(props){
 			props[propName] = metroTiles['tiles'][props.type]['defaults'][propName]
 		}
 	}
+	for(propname in props){
+		props[propname] = escapeHtml(props[propname])
+	}
+
 	return props
 }
 
@@ -706,7 +710,7 @@ function updateTileData(){
 		var spacing = (typeof  jQuery(this).find('.metro-wys-groupTitle').data('metro-group-margin-left') == 'undefined') ? 1 :  jQuery(this).find('.metro-wys-groupTitle').data('metro-group-margin-left') 
 		data[length] = {
 			type:'group',
-			title: jQuery(this).find('.metro-wys-groupTitle').html(),
+			title: escapeHtml(jQuery(this).find('.metro-wys-groupTitle').html()),
 			url: groupUrl,
 			margin_left: spacing
 		}
@@ -723,6 +727,7 @@ function updateTileData(){
 		})
 	})
 	data = JSON.stringify(data)
+
 	jQuery('#metro-wys-tile-data').val(data)
 	jQuery('.wp-editor-area').html(data)
 
@@ -1087,9 +1092,9 @@ jQuery.fn.serializeObject = function(){
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
             }
-            o[this.name].push(this.value || '');
+            o[this.name].push(escapeHtml(this.value) || '');
         } else {
-            o[this.name] = this.value || '';
+            o[this.name] = escapeHtml(this.value) || '';
         }
     });
     return o;
@@ -1109,4 +1114,19 @@ function uniqID() {
     }else{
         return uniqID(20)
     }
+}
+
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
 }
