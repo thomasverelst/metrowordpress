@@ -6,7 +6,9 @@ This template was made during 2014-2015 for Wordpress 3.8, so it might be quite 
 Anyway, I made the code publicly visible since there were many code requests. Since it was just a private hobby project, the code isn't well documented. The layout is a bit retro already (there is a reason why Microsoft changed from horizontal scrolling tiles to vertical scrolling in Win10..), but the code can be quite useful since the AJAX page transitions are pretty unique. 
 
 ## Important! Severe bug
-There is a severe bug in the tile editor, which sometimes might screw up the tile layout. I didn't find the cause and I suspect it might be due to the gridster.js plugin that's used in the tile editor. But I'm not sure about that. 
+There is a severe bug in the tile editor, which sometimes might screw up the tile layout. This is due to the character encoding of Wordpress meta fields. If you use " or ' in any tile argument, the whole layout is messed up. So do not use ' or ". The biggest problem is that even encoded characters (for example &quot;) also cause this bug since I think the wordpress meta functions convert these characters back to " and '. So.. it's not possible to use single or double quotes, a major limitation.
+
+If you accidently used a quote character, you can still recover your previous tile layout using the Wordpress revision system. To get the revisions of your tile page, open the page editor, close the tile editor (button right bottom), and click on the latest revision. Copy the code of the old revision, go to the tile editor, click on 'import tile data' in the bottom bar and paste your code here. 
 
 
 ## Install
@@ -18,7 +20,7 @@ Create two new menus: set one as main navigation and the other one as footer nav
 ## Creating a new page
 
 ### Tile page
-You can create pages with tiles by adding a new Wordpress page and then setting the page template in the right column ('Page Attributes') to 'Tile page'. Save the page and a GUI should come up where you can add tiles.
+You can create pages with tiles by adding a new Wordpress page and then setting the page template in the right column ('Page Attributes') to 'Tile page'. Publish the page and a GUI should come up where you can add tiles. If the GUI doesn't show up, click on 'Metro Attributes' in the right column and click 'Open tile Editor'. Probably, the layout is messed up a bit then. Fix this by refreshing the page (press F5) and everything should be fine. Then you can start adding tile groups and tiles by using the buttons in the bottom bar.
 
 ### Normal page
 To add a normal page, use the "Add new" button, then change your page title and save before (!) starting on the page content. This way the WYSIWYG style is applied on the editor.
