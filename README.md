@@ -1,7 +1,9 @@
 # Metro Wordpress Template
 http://metro-webdesign.info/wordpress
 
-This template was made during 2014-2015 for Wordpress 3.8, so it might be quite outdated already. Anyway, I made the code publicly visible since there were many code requests. Since it was just a private hobby project, the code isn't well documented. Altough the layout is a bit retro already (there is a reason why Microsoft changed from horizontal scrolling tiles to vertical scrolling in Win10..), the code can be quite useful since the AJAX page transitions are quite unique. 
+This template was made during 2014-2015 for Wordpress 3.8, so it might be quite outdated already. Don't use it in a live or production environmnet since I'm not maintaining it since September 2015.
+
+Anyway, I made the code publicly visible since there were many code requests. Since it was just a private hobby project, the code isn't well documented. The layout is a bit retro already (there is a reason why Microsoft changed from horizontal scrolling tiles to vertical scrolling in Win10..), but the code can be quite useful since the AJAX page transitions are pretty unique. 
 
 ## Important! Severe bug
 There is a severe bug in the tile editor, which sometimes might screw up the tile layout. I didn't find the cause and I suspect it might be due to the gridster.js plugin that's used in the tile editor. But I'm not sure about that. 
